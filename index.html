@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection...</title>
+    <script>
+        // Liste des redirections dynamiques
+        const redirects = {
+            "impact-25": "https://docs.google.com/document/d/XXXXXXXXXX",
+            "taef72": "https://example.com/autre-page",
+            "stats": "https://analytics.google.com",
+            "default": "https://cyborgbulls.fr"  // Redirection par défaut si l'URL est inconnue
+        };
+
+        // Récupère le chemin de l'URL après le domaine (ex: /impact-25)
+        const path = window.location.pathname.replace("/", "");
+
+        // Vérifie si le chemin correspond à une redirection
+        const redirectUrl = redirects[path] || redirects["default"];
+
+        // Redirige l'utilisateur
+        window.location.href = redirectUrl;
+    </script>
+</head>
+<body>
+    <p>Redirection en cours... Si vous n'êtes pas redirigé, cliquez <a id="redirect-link" href="#">ici</a>.</p>
+    <script>
+        document.getElementById("redirect-link").href = redirectUrl;
+    </script>
+</body>
+</html>
